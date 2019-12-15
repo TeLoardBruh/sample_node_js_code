@@ -31,36 +31,102 @@ app.get('/webhook/', function (req, res) {
 
 app.post('/webhook/', function (req, res) {
     let messaging_event = req.body.entry[0].messaging;
-    for (let i = 0 ; i < messaging_event.length; i++){
+    for (let i = 0; i < messaging_event.length; i++) {
         let event = messaging_event[i];
         let sender = event.sender.id
-        if(event.message && event.message.text){
+        if (event.message && event.message.text) {
             let text = event.message.text;
-            sendText(sender, "Text Echo : " + text.substring(0,100))
+            // sendText(sender, "Text Echo : " + text.substring(0,100))
+            decideMessage(sender, text)
+        }
+        if (event.postback) {
+            let text = JSON.stringify(event.postback)
+            decideMessage(sender, text)
+            continue
         }
     }
     res.sendStatus(200);
 })
 
-function sendText(sender, text){
-    let messageData = {text: text}
+function decideMessage(sender, text) {
+    let text = text1.tolowerCase();
+    if (text.includes("dog")) {
+        sendImageMessage(sender)
+    } else if (text.includes("cat")) {
+        sendImageMessage(sender)
+    } else {
+        sendText(sender, "...")
+        sendButton(sender, "what is your fav pet ?")
+    }
+}
+
+function sendButton(sender, text) {
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": text,
+                "buttons": [{
+                        "type": "postback",
+                        "title": "dog",
+                        "payload": "dog"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "cat",
+                        "payload": "cat"
+                    },
+
+                ]
+            }
+        }
+    }
+    sendRequest(sender, messageData)
+
+}
+
+function sendImageMessage(sender) {
+    let messageData = {
+        "attachment": {
+            "type": "image",
+            "payload": {
+                "url": "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg"
+            }
+        }
+    }
+    sendRequest(sender, messageData)
+}
+
+
+function sendRequest(sender, messageData) {
     request({
         url: 'https://graph.facebook.com/v5.0/me/messages',
-        qs: {access_token : token},
+        qs: {
+            access_token: token
+        },
         method: 'POST',
         json: {
-            recipient: {id:sender},
+            recipient: {
+                id: sender
+            },
             message: messageData
         }
-    }, function(error, req,res){
-        if(error){
+    }, function (error, req, res) {
+        if (error) {
             console.log("Sending is Error");
-        }
-        else if(req.body.error){
+        } else if (req.body.error) {
             console.log("responding is Error");
         }
     })
 }
-app.listen(app.get('port'), function(){
+
+function sendText(sender, text) {
+    let messageData = {
+        text: text
+    }
+    sendRequest(sender, messageData)
+}
+app.listen(app.get('port'), function () {
     console.log(`running : port `);
 })
