@@ -41,24 +41,26 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200);
 })
 
-function sendText(sender, text) {
-	let messageData = {text: text}
-	request({
-		url: "https://graph.facebook.com/v2.6/me/messages",
-		qs : {access_token: token},
-		method: "POST",
-		json: {
-			recipient: {id: sender},
-			message : messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log("sending error")
-		} else if (response.body.error) {
-			console.log("response body error")
-		}
-	})
+function sendText(sender, text){
+    let messageData = {text : text};
+    request({
+        url: 'https://graph.facebook.com/v5.0/me/messages',
+        qs: {access_token : token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData
+        }
+    }, function(error, req,res){
+        if(error){
+            console.log("Sending is Error");
+        }
+        else if(req.body.error){
+            console.log("responding is Error");
+        }
+    })
 }
+
 app.listen(app.get('port'), function(){
     console.log(`listenning to ${PORT}`);
 })
