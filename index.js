@@ -4,9 +4,9 @@ const request = require('request')
 
 
 const app = express()
-PORT = process.env.PORT || 5000
+PORT = 8080
 let token = 'EAAjUYnJpZAMoBAOBemtbwdjsZAbg906HrasCLyjpn1xcEg7583VvE6T470ZCLShZBLAGDS25LsstcyxlS248lH2jYzeAZBt09k1Gcuu41JEkv53BKtcKnHRZAcnhUtSSy68tZBi7LsdxQpcfrXSx90QC5i7d7ngKbfTZAogZAjZCXQwQZDZD'
-app.set(PORT)
+app.set('port', (process.env.PORT || 5000))
 
 // Allow us to process the data 
 app.use(bodyParser.urlencoded({
@@ -28,7 +28,7 @@ app.get('/webhook/', function (req, res) {
     res.send("wrong token")
 })
 
-app.get('/webhook/', function (req, res) {
+app.post('/webhook/', function (req, res) {
     let messaging_event = req.body.entry[0].messaging;
     for (let i = 0 ; i < messaging_event.length; i++){
         let event = messaging_event[i];
