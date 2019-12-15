@@ -51,16 +51,15 @@ function sendText(sender, text){
             recipient: {id:sender},
             message: messageData
         }
-    }, function(error, req,res){
+    }), function(error, req,res){
         if(error){
             console.log("Sending is Error");
         }
         else if(req.body.error){
             console.log("responding is Error");
         }
-    })
+    }
 }
-
 app.listen(app.get('port'), function(){
     console.log(`listenning to ${PORT}`);
 })
