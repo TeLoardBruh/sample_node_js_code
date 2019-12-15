@@ -44,7 +44,7 @@ app.get('/webhook/', function (req, res) {
 function sendText(sender, text){
     let messageData = {text : text};
     request({
-        url: 'https://www.messenger.com/t/110334780462491',
+        url: 'https://graph.facebook.com/v5.0/me/messages',
         qs: {access_token : token},
         method: 'POST',
         json: {
