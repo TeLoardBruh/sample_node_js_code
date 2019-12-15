@@ -48,7 +48,7 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200);
 })
 
-function decideMessage(sender, text) {
+function decideMessage(sender, text1) {
     let text = text1.tolowerCase();
     if (text.includes("dog")) {
         sendImageMessage(sender)
