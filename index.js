@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 
 // Secure Stuff
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === "raxcyRax") {
+    if (req.query['hub.verify_token'] == "raxcyRax") {
         res.send(req.query['hub.challenge'])
     }
     res.send("wrong token")
