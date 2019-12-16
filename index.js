@@ -53,13 +53,13 @@ app.post("/webhook/", function(req, res) {
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
-    sendGreeting(sender);
+    sendGreeting(sender, 'hello');
   } else if (text.includes("dog")) {
     sendImageMessage(sender);
   } else if (text.includes("cat")) {
     sendImageMessage(sender);
   } else {
-    sendText(sender, "...");
+    sendText(sender, "Hello welcome to my service");
     sendButton(sender, "what is your fav pet ?");
   }
 }
