@@ -49,14 +49,36 @@ app.post('/webhook/', function (req, res) {
 
 function decideMessage(sender, text1) {
     let text = text1.toString().toLowerCase();
-    if (text.includes("dog")) {
+    if (text.includes("hi")) {
         sendImageMessage(sender)
-    } else if (text.includes("cat")) {
+    }
+    else if (text.includes("")){
+
+    }
+    else if (text.includes("cat")) {
         sendImageMessage(sender)
     } else {
         sendText(sender, "...")
         sendButton(sender, "what is your fav pet ?")
     }
+}
+function sendGreeting (sender){
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": "welcome to my chat bot service",
+                "button": [{
+                    "type": "postback",
+                    "title": "Visit my page",
+                    "payload": "dog"
+                },
+            ]
+            }
+        }
+    }
+    sendRequest(sender, messageData)
 }
 
 function sendButton(sender, text) {
