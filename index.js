@@ -69,7 +69,7 @@ function sendGreeting(sender) {
       type: "template",
       payload: {
         template_type: "generic",
-       elements: [
+        elements: [
           {
             title: "hello",
             image_url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
@@ -91,9 +91,7 @@ function sendGreeting(sender) {
                 payload: "cat"
               }
             ]
-          }
-        ], 
-       elements: [
+          },
           {
             title: "hello 1",
             image_url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
@@ -115,31 +113,7 @@ function sendGreeting(sender) {
                 payload: "cat"
               }
             ]
-          }
-        ], 
-        elements: [
-          {
-            title: "hello 2",
-            image_url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
-            subtitle: "test",
-            default_action: {
-              type: "web_url",
-              url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
-              webview_height_ratio: "tall"
-            },
-            buttons: [
-              {
-                type: "postback",
-                title: "dog",
-                payload: "dog"
-              },
-              {
-                type: "postback",
-                title: "cat",
-                payload: "cat"
-              }
-            ]
-          }
+          },
         ]
       }
     }
