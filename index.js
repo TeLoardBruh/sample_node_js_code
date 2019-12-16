@@ -50,7 +50,7 @@ app.post('/webhook/', function (req, res) {
 function decideMessage(sender, text1) {
     let text = text1.toString().toLowerCase();
     if (text.includes("hi")) {
-        sendImageMessage(sender)
+        sendGreeting(sender)
     }
     else if (text.includes("")){
 
