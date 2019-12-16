@@ -55,9 +55,9 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting(sender, 'hello');
   } else if (text.includes("dog")) {
-    sendImageMessage(sender);
+    sendImageMessageDog(sender);
   } else if (text.includes("cat")) {
-    sendImageMessage(sender);
+    sendImageMessageCat(sender);
   } else {
     sendText(sender, "Hello welcome to my service");
     sendButton(sender, "what is your fav pet ?");
@@ -113,13 +113,25 @@ function sendButton(sender, text) {
   sendRequest(sender, messageData);
 }
 
-function sendImageMessage(sender) {
+function sendImageMessageDog(sender) {
   let messageData = {
     attachment: {
       type: "image",
       payload: {
         url:
           "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg"
+      }
+    }
+  };
+  sendRequest(sender, messageData);
+}
+function sendImageMessageCat(sender) {
+  let messageData = {
+    attachment: {
+      type: "image",
+      payload: {
+        url:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifDWMZoCYkJUfs_3YwbMVlTdMke7RgEfOX2P_NUXBmiRp7JW_&s"
       }
     }
   };
