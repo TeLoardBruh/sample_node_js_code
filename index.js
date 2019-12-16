@@ -69,12 +69,18 @@ function sendGreeting (sender,text){
             "payload": {
                 "template_type": "button",
                 "text": text,
-                "button": [{
-                    "type": "postback",
-                    "title": "Visit my page",
-                    "payload": "dog"
-                },
-            ]
+                "buttons": [{
+                        "type": "postback",
+                        "title": "dog",
+                        "payload": "dog"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "cat",
+                        "payload": "cat"
+                    },
+
+                ]
             }
         }
     }
