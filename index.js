@@ -52,8 +52,8 @@ function decideMessage(sender, text1) {
     if (text.includes("hi")) {
         sendGreeting(sender)
     }
-    else if (text.includes("")){
-
+    else if (text.includes("dog")){
+        sendImageMessage(sender)
     }
     else if (text.includes("cat")) {
         sendImageMessage(sender)
@@ -62,13 +62,13 @@ function decideMessage(sender, text1) {
         sendButton(sender, "what is your fav pet ?")
     }
 }
-function sendGreeting (sender){
+function sendGreeting (sender,text){
     let messageData = {
         "attachment": {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": "welcome to my chat bot service",
+                "text": text,
                 "button": [{
                     "type": "postback",
                     "title": "Visit my page",
