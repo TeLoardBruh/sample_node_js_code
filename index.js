@@ -53,7 +53,7 @@ app.post("/webhook/", function(req, res) {
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
-    sendGreeting(sender, 'hello');
+    sendGreeting(sender, "hello");
   } else if (text.includes("dog")) {
     sendImageMessageDog(sender);
   } else if (text.includes("cat")) {
@@ -64,29 +64,41 @@ function decideMessage(sender, text1) {
   }
 }
 function sendGreeting(sender, text) {
-    let messageData = {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: text,
-          buttons: [
-            {
-              type: "postback",
-              title: "dog",
-              payload: "dog"
+  let messageData = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "generic",
+        elements: [
+          {
+            title: "<TITLE_TEXT>",
+            image_url: "<IMAGE_URL_TO_DISPLAY>",
+            subtitle: "<SUBTITLE_TEXT>",
+            default_action: {
+              type: "web_url",
+              url: "<DEFAULT_URL_TO_OPEN>",
+              messenger_extensions: "TRUE | FALSE",
+              webview_height_ratio: "<COMPACT | TALL | FULL>"
             },
-            {
-              type: "postback",
-              title: "cat",
-              payload: "cat"
-            }
-          ]
-        }
+            buttons: [
+              {
+                type: "postback",
+                title: "dog",
+                payload: "dog"
+              },
+              {
+                type: "postback",
+                title: "cat",
+                payload: "cat"
+              }
+            ]
+          }
+        ]
       }
-    };
-    sendRequest(sender, messageData);
-  }
+    }
+  };
+  sendRequest(sender, messageData);
+}
 
 function sendButton(sender, text) {
   let messageData = {
