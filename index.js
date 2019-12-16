@@ -12,7 +12,7 @@ app.set("port", process.env.PORT || 5000);
 // Allow us to process the data
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: false
   })
 );
 app.use(bodyParser.json());
