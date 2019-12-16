@@ -53,7 +53,7 @@ app.post("/webhook/", function(req, res) {
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
-    sendGreeting(sender, "hello");
+    sendGreeting(sender);
   } else if (text.includes("dog")) {
     sendImageMessageDog(sender);
   } else if (text.includes("cat")) {
@@ -63,7 +63,7 @@ function decideMessage(sender, text1) {
     sendButton(sender, "what is your fav pet ?");
   }
 }
-function sendGreeting(sender, text) {
+function sendGreeting(sender) {
   let messageData = {
     attachment: {
       type: "template",
@@ -71,14 +71,14 @@ function sendGreeting(sender, text) {
         template_type: "generic",
         elements: [
           {
-            title: "<TITLE_TEXT>",
-            image_url: "<IMAGE_URL_TO_DISPLAY>",
-            subtitle: "<SUBTITLE_TEXT>",
+            title: "hello",
+            image_url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
+            subtitle: "test",
             default_action: {
               type: "web_url",
-              url: "<DEFAULT_URL_TO_OPEN>",
-              messenger_extensions: "TRUE | FALSE",
-              webview_height_ratio: "<COMPACT | TALL | FULL>"
+              url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
+              messenger_extensions: "testing",
+              webview_height_ratio: "COMPACT | TALL | FULL"
             },
             buttons: [
               {
