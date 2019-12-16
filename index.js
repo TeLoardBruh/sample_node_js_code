@@ -91,7 +91,7 @@ function sendImageMessage(sender) {
         "attachment": {
             "type": "image",
             "payload": {
-                "url": "https://random.dog/woof.json"
+                "url": "https://random.dog/woof.json".json()
             }
         }
     }
