@@ -53,7 +53,7 @@ app.post("/webhook/", function(req, res) {
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
-    sendImageMessage(sender);
+    sendGreeting(sender);
   } else if (text.includes("dog")) {
     sendImageMessage(sender);
   } else if (text.includes("cat")) {
@@ -64,29 +64,29 @@ function decideMessage(sender, text1) {
   }
 }
 function sendGreeting(sender, text) {
-  let messageData = {
-    attachment: {
-      type: "template",
-      payload: {
-        template_type: "button",
-        text: text,
-        buttons: [
-          {
-            type: "postback",
-            title: "dog",
-            payload: "dog"
-          },
-          {
-            type: "postback",
-            title: "cat",
-            payload: "cat"
-          }
-        ]
+    let messageData = {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: text,
+          buttons: [
+            {
+              type: "postback",
+              title: "dog",
+              payload: "dog"
+            },
+            {
+              type: "postback",
+              title: "cat",
+              payload: "cat"
+            }
+          ]
+        }
       }
-    }
-  };
-  sendRequest(sender, messageData);
-}
+    };
+    sendRequest(sender, messageData);
+  }
 
 function sendButton(sender, text) {
   let messageData = {
