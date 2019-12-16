@@ -77,8 +77,7 @@ function sendGreeting(sender) {
             default_action: {
               type: "web_url",
               url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg",
-              messenger_extensions: "testing",
-              webview_height_ratio: "COMPACT | TALL | FULL"
+              webview_height_ratio: "tall"
             },
             buttons: [
               {
