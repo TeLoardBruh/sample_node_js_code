@@ -65,8 +65,7 @@ function decideMessage(sender, text1) {
 }
 function sendGreeting(sender) {
   let messageData = {
-    messaging_type: "RESPONSE",
-    message: {
+
       text: "Pick a color:",
       quick_replies: [
         {
@@ -83,7 +82,7 @@ function sendGreeting(sender) {
         },
 
       ]
-    }
+    
   };
   sendRequest(sender, messageData);
 }
