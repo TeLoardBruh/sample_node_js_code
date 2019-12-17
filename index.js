@@ -69,13 +69,13 @@ function sendGreeting(sender) {
     quick_replies: [
       {
         content_type: "text",
-        title: "Red",
+        title: "red",
         payload: "testing_1",
         image_url: "http://example.com/img/red.png"
       },
       {
         content_type: "text",
-        title: "Green",
+        title: "green",
         payload: "testing_2",
         image_url: "http://example.com/img/green.png"
       }
