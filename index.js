@@ -81,10 +81,7 @@ function sendGreeting(sender) {
           payload: "testing_2",
           image_url: "http://example.com/img/green.png"
         },
-        {
-          title: "testing_2",
-          text: "hello testing_2"
-        }
+
       ]
     }
   };
