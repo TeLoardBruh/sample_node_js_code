@@ -65,24 +65,35 @@ function decideMessage(sender, text1) {
 }
 function sendGreeting(sender) {
   let messageData = {
-
-      text: "Pick a color:",
-      quick_replies: [
-        {
-          content_type: "text",
-          title: "Red",
-          payload: "testing_1",
-          image_url: "http://example.com/img/red.png"
-        },
-        {
-          content_type: "text",
-          title: "Green",
-          payload: "testing_2",
-          image_url: "http://example.com/img/green.png"
-        },
-
-      ]
-    
+    text: "Pick a color:",
+    quick_replies: [
+      {
+        content_type: "text",
+        title: "Red",
+        payload: "testing_1",
+        image_url: "http://example.com/img/red.png"
+      },
+      {
+        content_type: "text",
+        title: "testing_1",
+        text: "good red work",
+        payload: "testing_1",
+        image_url: "http://example.com/img/red.png"
+      },
+      {
+        content_type: "text",
+        title: "Green",
+        payload: "testing_2",
+        image_url: "http://example.com/img/green.png"
+      },
+      {
+        content_type: "text",
+        title: "testing_2",
+        text: "good green works",
+        payload: "testing_2",
+        image_url: "http://example.com/img/green.png"
+      }
+    ]
   };
   sendRequest(sender, messageData);
 }
