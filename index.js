@@ -67,8 +67,6 @@ function sendGreeting(sender) {
   let messageData = {
     attachment: {
       type: "template",
-      payload: {
-        template_type: "generic",
         elements: [
           {
             title: "greeting",
@@ -356,7 +354,7 @@ function sendGreeting(sender) {
             payload_1: "kh_lang"
           }
         ]
-      }
+      
     }
   };
   sendRequest(sender, messageData);
