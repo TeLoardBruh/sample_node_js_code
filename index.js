@@ -79,21 +79,7 @@ function sendGreeting(sender) {
         payload: "testing_2",
         image_url: "http://example.com/img/green.png"
       }
-    ],
-    quick_replies: [
-      {
-        content_type: "text",
-        title: "testing_1",
-        text: "testing_1",
-        image_url: "http://example.com/img/red.png"
-      },
-      {
-        content_type: "text",
-        title: "testing_2",
-        text: "testing_2",
-        image_url: "http://example.com/img/green.png"
-      }
-    ],
+    ]
 
   };
   sendRequest(sender, messageData);
