@@ -54,9 +54,9 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting(sender);
-  } else if (text.includes("dog")) {
+  } else if (text.includes("red")) {
     sendImageMessageDog(sender);
-  } else if (text.includes("cat")) {
+  } else if (text.includes("green")) {
     sendImageMessageCat(sender);
   } else {
     sendText(sender, "Hello welcome to my service");
