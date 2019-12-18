@@ -86,13 +86,12 @@ function sendGreeting_quick_reply(sender) {
   sendRequest(sender, messageData);
 }
 // send back
-function sendBack(sender, text){
+function sendBack(sender){
   let messageData = {
     attachment: {
       type: "template",
       payload: {
         template_type: "button",
-        text: text,
         buttons: [
           {
             type: "postback",
