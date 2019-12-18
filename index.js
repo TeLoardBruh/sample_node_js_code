@@ -92,11 +92,17 @@ function sendBack(sender){
       type: "template",
       payload: {
         template_type: "button",
+        text: text,
         buttons: [
           {
             type: "postback",
-            title: "back to start",
-            payload: "back_to_start"
+            title: "dog",
+            payload: "dog"
+          },
+          {
+            type: "postback",
+            title: "cat",
+            payload: "cat"
           }
         ]
       }
