@@ -79,6 +79,7 @@ function decideMessage(sender, text1) {
 // quick replies on opening chat 
 function sendGreeting_quick_reply(sender) {
   let messageData = {
+    sender_action :"typing_on",
     text: "What can we you with ?",
     quick_replies: [
       {
