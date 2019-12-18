@@ -66,7 +66,7 @@ function decideMessage(sender, text1) {
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
     // sendButton(sender, 'hello 2');
-  } else if (text.includes("go back")) {
+  } else if (text.includes("Go back")) {
     sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
@@ -131,7 +131,7 @@ function sendImageMessageGenericShopHere(sender) {
         template_type: "generic",
         elements: [
           {
-            title: "Welcome!",
+            title: "T-Shirt-1",
             image_url:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
             subtitle: "We have the right hat for everyone.",
@@ -153,13 +153,13 @@ function sendImageMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "go back",
+                title: "Go Back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1" 
               }
             ]
           },
           {
-            title: "Welcome!",
+            title: "T-Shirt-2",
             image_url:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
             subtitle: "We have the right hat for everyone.",
@@ -181,13 +181,13 @@ function sendImageMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "go back",
+                title: "Go Back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1" 
               }
             ]
           },
           {
-            title: "Welcome!",
+            title: "T-Shirt-3",
             image_url:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
             subtitle: "We have the right hat for everyone.",
@@ -209,7 +209,7 @@ function sendImageMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "go back",
+                title: "Go Back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1" 
               }
             ]
