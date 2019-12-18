@@ -61,11 +61,12 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-  } else if (payload("testing_1")) {
+  } else if (text.includes("shop here")) {
     sendImageMessageDog(sender);
-  } else if (payload("testing_2")) {
+    sendButton(sender);
+  } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
-    sendBack(sender);
+    sendButton(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
