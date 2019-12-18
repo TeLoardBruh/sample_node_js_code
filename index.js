@@ -52,8 +52,17 @@ app.post("/webhook/", function(req, res) {
 
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
-  if (text.includes("hi")) {
-    sendGreeting(sender);
+  if (text.includes("hi quick reply")) {
+    sendGreeting_quick_reply(sender);
+    if(text.includes('hello')){
+      sendBack(send, 'would you like to back?');
+    }
+    else if (text.includes("bye")){
+      sendBack(send, 'would you like to back?');
+    }
+    else{
+      sendBack(send, 'going back ?');
+    }
   } else if (text.includes("red")) {
     sendImageMessageDog(sender);
   } else if (text.includes("green")) {
@@ -63,28 +72,46 @@ function decideMessage(sender, text1) {
     sendButton(sender, "what is your fav pet ?");
   }
 }
-function sendGreeting(sender) {
+function sendGreeting_quick_reply(sender) {
   let messageData = {
     text: "Pick a color:",
     quick_replies: [
       {
         content_type: "text",
-        title: "red",
+        title: "hello ",
         payload: "testing_1",
         image_url: "http://example.com/img/red.png"
       },
       {
         content_type: "text",
-        title: "green",
+        title: "bye",
         payload: "testing_2",
         image_url: "http://example.com/img/green.png"
       }
     ]
-
   };
   sendRequest(sender, messageData);
 }
-
+// send back
+function sendBack(send,text){
+  let messageData = {
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: "button",
+        text: text,
+        buttons: [
+          {
+            type: "postback",
+            title: "back to start",
+            payload: "back_to_start"
+          }
+        ]
+      }
+    }
+  };
+  sendRequest(sender, messageData);
+}
 function sendButton(sender, text) {
   let messageData = {
     attachment: {
