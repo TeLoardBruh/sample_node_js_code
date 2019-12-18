@@ -151,7 +151,7 @@ function sendImageMessageGenericShopHere(sender) {
               {
                 "type": "postback",
                 "title": "go back",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                "payload": "DEVELOPER_DEFINED_PAYLOAD_1"
               },
             ],
 
@@ -178,7 +178,7 @@ function sendImageMessageGenericShopHere(sender) {
               {
                 "type": "postback",
                 "title": "go back",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                "payload": "DEVELOPER_DEFINED_PAYLOAD_1"
               },
             ],
 
@@ -204,7 +204,7 @@ function sendImageMessageGenericShopHere(sender) {
               {
                 "type": "postback",
                 "title": "go back",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                "payload": "DEVELOPER_DEFINED_PAYLOAD_1"
               },
             ],
 
