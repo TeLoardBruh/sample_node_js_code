@@ -106,6 +106,28 @@ function sendButton(sender, text) {
   let messageData = {
     attachment: {
       type: "template",
+      payload: {
+        template_type: "button",
+        text: text,
+        buttons: [{
+          type: "postback",
+          title: "go back",
+          payload: "go_back"
+        }]
+      }
+    }
+  };
+  sendRequest(sender, messageData);
+}
+// =====================================================================================================================================
+
+
+// =====================================================================================================================================
+// send image function
+function sendImageMessageGenericShopHere(sender) {
+  let messageData = {
+    attachment: {
+      type: "template",
       "payload": {
         "template_type": "generic",
         "elements": [{
@@ -127,22 +149,6 @@ function sendButton(sender, text) {
             "payload": "DEVELOPER_DEFINED_PAYLOAD"
           }]
         }]
-      }
-    }
-  };
-  sendRequest(sender, messageData);
-}
-// =====================================================================================================================================
-
-
-// =====================================================================================================================================
-// send image function
-function sendImageMessageGenericShopHere(sender) {
-  let messageData = {
-    attachment: {
-      type: "image",
-      payload: {
-        url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg"
       }
     }
   };
