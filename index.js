@@ -79,7 +79,6 @@ function decideMessage(sender, text1) {
 // quick replies on opening chat 
 function sendGreeting_quick_reply(sender) {
   let messageData = {
-    sender_action :"typing_on",
     text: "What can we you with ?",
     quick_replies: [
       {
@@ -92,7 +91,8 @@ function sendGreeting_quick_reply(sender) {
         title: "check price",
         payload: "testing_2",
       }
-    ]
+    ],
+    sender_action :"typing_on",
   };
   sendRequest(sender, messageData);
 }
