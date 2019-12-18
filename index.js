@@ -61,9 +61,9 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-  } else if (text.includes("shop here")) {
+  } else if (text.payload("testing_1")) {
     sendImageMessageDog(sender);
-  } else if (text.includes("check price")) {
+  } else if (text.payload("testing_2")) {
     sendImageMessageCat(sender);
     sendBack(sender);
   } else {
@@ -91,8 +91,8 @@ function sendGreeting_quick_reply(sender) {
         title: "check price",
         payload: "testing_2",
       }
-    ],
-    sender_action :"typing_on",
+    ]
+    
   };
   sendRequest(sender, messageData);
 }
