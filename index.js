@@ -63,7 +63,7 @@ function decideMessage(sender, text1) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
     sendImageMessageGenericShopHere(sender);
-    sendButton(sender);
+    // sendButton(sender);
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
     // sendButton(sender, 'hello 2');
