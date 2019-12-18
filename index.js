@@ -63,10 +63,10 @@ function decideMessage(sender, text1) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
     sendImageMessageDog(sender);
-    sendButton(sender);
+    sendButton(sender,'hello 1');
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
-    sendButton(sender);
+    sendButton(sender, 'hello 2');
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
