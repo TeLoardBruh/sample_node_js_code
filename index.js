@@ -20,21 +20,21 @@ app.use(bodyParser.json());
 // Routes
 // =====================================================================================================================================
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("Hi this is my node ChatBot");
 });
 // =====================================================================================================================================
 
 // =====================================================================================================================================
 // webhook 
-app.get("/webhook/", function(req, res) {
+app.get("/webhook/", function (req, res) {
   if (req.query["hub.verify_token"] === "raxcyRax") {
     res.send(req.query["hub.challenge"]);
   }
   res.send("wrong token");
 });
 
-app.post("/webhook/", function(req, res) {
+app.post("/webhook/", function (req, res) {
   let messaging_event = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_event.length; i++) {
     let event = messaging_event[i];
@@ -62,11 +62,13 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
-    sendImageMessageDog(sender);
-    sendButton(sender,'hello 1');
+    sendImageMessageGenericShopHere(sender);
+    sendButton(sender, 'hello 1');
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
     sendButton(sender, 'hello 2');
+  } else if (text.includes('go back')) {
+    sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
@@ -81,8 +83,7 @@ function decideMessage(sender, text1) {
 function sendGreeting_quick_reply(sender) {
   let messageData = {
     text: "What can we you with ?",
-    quick_replies: [
-      {
+    quick_replies: [{
         content_type: "text",
         title: "shop here",
         payload: "testing_1",
@@ -93,7 +94,7 @@ function sendGreeting_quick_reply(sender) {
         payload: "testing_2",
       }
     ]
-    
+
   };
   sendRequest(sender, messageData);
 }
@@ -108,18 +109,11 @@ function sendButton(sender, text) {
       payload: {
         template_type: "button",
         text: text,
-        buttons: [
-          {
-            type: "postback",
-            title: "dog",
-            payload: "dog"
-          },
-          {
-            type: "postback",
-            title: "cat",
-            payload: "cat"
-          }
-        ]
+        buttons: [{
+          type: "postback",
+          title: "go back",
+          payload: "go_back"
+        }]
       }
     }
   };
@@ -130,13 +124,12 @@ function sendButton(sender, text) {
 
 // =====================================================================================================================================
 // send image function
-function sendImageMessageDog(sender) {
+function sendImageMessageGenericShopHere(sender) {
   let messageData = {
     attachment: {
       type: "image",
       payload: {
-        url:
-          "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg"
+        url: "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg"
       }
     }
   };
@@ -148,8 +141,7 @@ function sendImageMessageCat(sender) {
     attachment: {
       type: "image",
       payload: {
-        url:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifDWMZoCYkJUfs_3YwbMVlTdMke7RgEfOX2P_NUXBmiRp7JW_&s"
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifDWMZoCYkJUfs_3YwbMVlTdMke7RgEfOX2P_NUXBmiRp7JW_&s"
       }
     }
   };
@@ -162,8 +154,7 @@ function sendImageMessageCat(sender) {
 // send Request Function
 // =====================================================================================================================================
 function sendRequest(sender, messageData) {
-  request(
-    {
+  request({
       url: "https://graph.facebook.com/v5.0/me/messages",
       qs: {
         access_token: token
@@ -173,10 +164,11 @@ function sendRequest(sender, messageData) {
         recipient: {
           id: sender
         },
+        sender_action: "typing_on",
         message: messageData
       }
     },
-    function(error, req, res) {
+    function (error, req, res) {
       if (error) {
         console.log("Sending is Error");
       } else if (req.body.error) {
@@ -193,6 +185,6 @@ function sendText(sender, text) {
   };
   sendRequest(sender, messageData);
 }
-app.listen(app.get("port"), function() {
+app.listen(app.get("port"), function () {
   console.log(`running : port `);
 });
