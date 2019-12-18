@@ -63,10 +63,10 @@ function decideMessage(sender, text1) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
     sendImageMessageGenericShopHere(sender);
-    sendButton(sender);
+    // sendButton(sender);
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
-    sendButton(sender, 'hello 2');
+    // sendButton(sender, 'hello 2');
   } else if (text.includes('go back')) {
     sendGreeting_quick_reply(sender);
   } else {
@@ -102,7 +102,7 @@ function sendGreeting_quick_reply(sender) {
 
 // =====================================================================================================================================
 // send button
-function sendButton(sender) {
+function sendButton(sender, text) {
   let messageData = {
     attachment: {
       type: "template",
