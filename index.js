@@ -164,8 +164,8 @@ function sendRequest(sender, messageData) {
         recipient: {
           id: sender
         },
-        sender_action: "typing_on",
-        message: messageData
+        message: messageData,
+        sender_action: "typing_on"
       }
     },
     function (error, req, res) {
