@@ -18,12 +18,15 @@ app.use(
 app.use(bodyParser.json());
 
 // Routes
+// =====================================================================================================================================
 
 app.get("/", function(req, res) {
   res.send("Hi this is my node ChatBot");
 });
+// =====================================================================================================================================
 
-// Secure Stuff
+// =====================================================================================================================================
+// webhook 
 app.get("/webhook/", function(req, res) {
   if (req.query["hub.verify_token"] === "raxcyRax") {
     res.send(req.query["hub.challenge"]);
@@ -49,68 +52,51 @@ app.post("/webhook/", function(req, res) {
   }
   res.sendStatus(200);
 });
+// =====================================================================================================================================
 
+
+// =====================================================================================================================================
+// main structure of chatbot 
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-     if (text.includes("hello")) {
-      sendImageMessageDog(sender);
-      sendBack(sender);
-    } else if (text.includes("bye")) {
-      sendImageMessageCat(sender);
-      sendBack(sender);
-    } else {
-      sendText(sender, "Hello welcome to my service");
-      sendButton(sender, "what is your fav pet ?");
-    }
-  } 
+  } else if (text.includes("continue to see more of our demo")) {
+    sendImageMessageDog(sender);
+  } else if (text.includes("go dicuss with us on your project")) {
+    sendImageMessageCat(sender);
+    sendBack(sender);
+  } else {
+    sendText(sender, "Hello welcome to my service");
+    sendButton(sender, "what is your fav pet ?");
+  }
 }
+// =====================================================================================================================================
+
+// =====================================================================================================================================
+// quick replies on opening chat 
 function sendGreeting_quick_reply(sender) {
   let messageData = {
-    text: "Pick a color:",
+    text: "What can we you with ?",
     quick_replies: [
       {
         content_type: "text",
-        title: "hello ",
+        title: "continue to see more of our demo",
         payload: "testing_1",
-        image_url: "http://example.com/img/red.png"
       },
       {
         content_type: "text",
-        title: "bye",
+        title: "go dicuss with us on your project",
         payload: "testing_2",
-        image_url: "http://example.com/img/green.png"
       }
     ]
   };
   sendRequest(sender, messageData);
 }
-// send back
-function sendBack(sender){
-  let messageData = {
-    attachment: {
-      type: "template",
-      payload: {
-        template_type: "button",
-        text: text,
-        buttons: [
-          {
-            type: "postback",
-            title: "dog",
-            payload: "dog"
-          },
-          {
-            type: "postback",
-            title: "cat",
-            payload: "cat"
-          }
-        ]
-      }
-    }
-  };
-  sendRequest(sender, messageData);
-}
+// =====================================================================================================================================
+
+// =====================================================================================================================================
+// send button
 function sendButton(sender, text) {
   let messageData = {
     attachment: {
@@ -135,7 +121,11 @@ function sendButton(sender, text) {
   };
   sendRequest(sender, messageData);
 }
+// =====================================================================================================================================
 
+
+// =====================================================================================================================================
+// send image function
 function sendImageMessageDog(sender) {
   let messageData = {
     attachment: {
@@ -148,6 +138,7 @@ function sendImageMessageDog(sender) {
   };
   sendRequest(sender, messageData);
 }
+
 function sendImageMessageCat(sender) {
   let messageData = {
     attachment: {
@@ -160,7 +151,12 @@ function sendImageMessageCat(sender) {
   };
   sendRequest(sender, messageData);
 }
+// =====================================================================================================================================
 
+
+
+// send Request Function
+// =====================================================================================================================================
 function sendRequest(sender, messageData) {
   request(
     {
@@ -185,6 +181,7 @@ function sendRequest(sender, messageData) {
     }
   );
 }
+// =====================================================================================================================================
 
 function sendText(sender, text) {
   let messageData = {
