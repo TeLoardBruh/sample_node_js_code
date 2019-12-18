@@ -106,13 +106,26 @@ function sendButton(sender, text) {
   let messageData = {
     attachment: {
       type: "template",
-      payload: {
-        template_type: "button",
-        text: text,
-        buttons: [{
-          type: "postback",
-          title: "go back",
-          payload: "go_back"
+      "payload": {
+        "template_type": "generic",
+        "elements": [{
+          "title": "Welcome!",
+          "image_url": "https://petersfancybrownhats.com/company_image.png",
+          "subtitle": "We have the right hat for everyone.",
+          "default_action": {
+            "type": "web_url",
+            "url": "https://petersfancybrownhats.com/view?item=103",
+            "webview_height_ratio": "tall",
+          },
+          "buttons": [{
+            "type": "web_url",
+            "url": "https://petersfancybrownhats.com",
+            "title": "View Website"
+          }, {
+            "type": "postback",
+            "title": "Start Chatting",
+            "payload": "DEVELOPER_DEFINED_PAYLOAD"
+          }]
         }]
       }
     }
@@ -164,8 +177,7 @@ function sendRequest(sender, messageData) {
         recipient: {
           id: sender
         },
-        message: messageData,
-        sender_action: "typing_on"
+        message: messageData
       }
     },
     function (error, req, res) {
