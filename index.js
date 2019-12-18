@@ -148,11 +148,6 @@ function sendImageMessageGenericShopHere(sender) {
                 "title": "Start Chatting",
                 "payload": "DEVELOPER_DEFINED_PAYLOAD"
               },
-              {
-                "type": "postback",
-                "title": "go back",
-                "payload": "go_back_buton_1"
-              },
             ],
           },
           {
@@ -174,11 +169,7 @@ function sendImageMessageGenericShopHere(sender) {
                 "title": "Start Chatting",
                 "payload": "DEVELOPER_DEFINED_PAYLOAD"
               },
-              {
-                "type": "postback",
-                "title": "go back",
-                "payload": "go_back_buton_2"
-              },
+
             ],
 
           },
@@ -201,11 +192,7 @@ function sendImageMessageGenericShopHere(sender) {
                 "title": "Start Chatting",
                 "payload": "DEVELOPER_DEFINED_PAYLOAD"
               },
-              {
-                "type": "postback",
-                "title": "go back",
-                "payload": "go_back_buton_3"
-              },
+
             ],
 
           },
