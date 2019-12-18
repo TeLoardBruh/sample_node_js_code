@@ -20,21 +20,21 @@ app.use(bodyParser.json());
 // Routes
 // =====================================================================================================================================
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("Hi this is my node ChatBot");
 });
 // =====================================================================================================================================
 
 // =====================================================================================================================================
 // webhook
-app.get("/webhook/", function(req, res) {
+app.get("/webhook/", function (req, res) {
   if (req.query["hub.verify_token"] === "raxcyRax") {
     res.send(req.query["hub.challenge"]);
   }
   res.send("wrong token");
 });
 
-app.post("/webhook/", function(req, res) {
+app.post("/webhook/", function (req, res) {
   let messaging_event = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_event.length; i++) {
     let event = messaging_event[i];
@@ -61,12 +61,14 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
-    sendImageMessageGenericShopHere(sender);
+    sendMessageGenericShopHere(sender);
     // sendButton(sender);
   } else if (text.includes("check price")) {
-    sendImageMessageCat(sender);
+    sendList(sender);
     // sendButton(sender, 'hello 2');
   } else if (text.includes("Go back")) {
+    sendGreeting_quick_reply(sender);
+  } else if (text.includes("Start Chatting")) {
     sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
@@ -123,7 +125,7 @@ function sendButton(sender, text) {
 
 // =====================================================================================================================================
 // send image function
-function sendImageMessageGenericShopHere(sender) {
+function sendMessageGenericShopHere(sender) {
   let messageData = {
     attachment: {
       type: "template",
@@ -154,7 +156,7 @@ function sendImageMessageGenericShopHere(sender) {
               {
                 type: "postback",
                 title: "Go Back",
-                payload: "DEVELOPER_DEFINED_PAYLOAD_1" 
+                payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
           },
@@ -182,7 +184,7 @@ function sendImageMessageGenericShopHere(sender) {
               {
                 type: "postback",
                 title: "Go Back",
-                payload: "DEVELOPER_DEFINED_PAYLOAD_1" 
+                payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
           },
@@ -210,7 +212,7 @@ function sendImageMessageGenericShopHere(sender) {
               {
                 type: "postback",
                 title: "Go Back",
-                payload: "DEVELOPER_DEFINED_PAYLOAD_1" 
+                payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
           }
@@ -221,13 +223,71 @@ function sendImageMessageGenericShopHere(sender) {
   sendRequest(sender, messageData);
 }
 
-function sendImageMessageCat(sender) {
+function sendList(sender) {
   let messageData = {
     attachment: {
-      type: "image",
+      type: "template",
       payload: {
-        url:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifDWMZoCYkJUfs_3YwbMVlTdMke7RgEfOX2P_NUXBmiRp7JW_&s"
+        template_type: "list",
+        top_element_style: "compact",
+        elements: [
+          {
+            title: "Classic T-Shirt Collection",
+            subtitle: "See all our colors",
+            image_url:
+              "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+            buttons: [
+              {
+                title: "View",
+                type: "web_url",
+                url: "https://peterssendreceiveapp.ngrok.io/collection",
+                messenger_extensions: true,
+                webview_height_ratio: "tall",
+                fallback_url: "https://peterssendreceiveapp.ngrok.io/"
+              }
+            ]
+          },
+          {
+            title: "Classic White T-Shirt",
+            subtitle: "See all our colors",
+            default_action: {
+              type: "web_url",
+              url: "https://peterssendreceiveapp.ngrok.io/view?item=100",
+              messenger_extensions: false,
+              webview_height_ratio: "tall"
+            }
+          },
+          {
+            title: "Classic Blue T-Shirt",
+            image_url:
+              "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+            subtitle: "100% Cotton, 200% Comfortable",
+            default_action: {
+              type: "web_url",
+              url: "https://peterssendreceiveapp.ngrok.io/view?item=101",
+              messenger_extensions: true,
+              webview_height_ratio: "tall",
+              fallback_url: "https://peterssendreceiveapp.ngrok.io/"
+            },
+            buttons: [
+              {
+                title: "Shop Now",
+                type: "web_url",
+                url: "https://peterssendreceiveapp.ngrok.io/shop?item=101",
+                messenger_extensions: true,
+                webview_height_ratio: "tall",
+                fallback_url: "https://peterssendreceiveapp.ngrok.io/"
+              }
+            ]
+          }
+        ],
+        buttons: [
+          {
+            title: "View More",
+            type: "postback",
+            payload: "payload"
+          }
+        ]
       }
     }
   };
@@ -252,7 +312,7 @@ function sendRequest(sender, messageData) {
         message: messageData
       }
     },
-    function(error, req, res) {
+    function (error, req, res) {
       if (error) {
         console.log("Sending is Error");
       } else if (req.body.error) {
@@ -269,6 +329,6 @@ function sendText(sender, text) {
   };
   sendRequest(sender, messageData);
 }
-app.listen(app.get("port"), function() {
+app.listen(app.get("port"), function () {
   console.log(`running : port `);
 });
