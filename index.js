@@ -150,7 +150,7 @@ function sendImageMessageGenericShopHere(sender) {
             },
             {
               "type": "postback",
-              "title": "Start Chatting",
+              "title": "go back",
               "payload": "DEVELOPER_DEFINED_PAYLOAD"
             },
           ],
@@ -178,7 +178,7 @@ function sendImageMessageGenericShopHere(sender) {
             }, 
             {
               "type": "postback",
-              "title": "Start Chatting",
+              "title": "go back",
               "payload": "DEVELOPER_DEFINED_PAYLOAD"
             }, 
           ],
@@ -205,7 +205,7 @@ function sendImageMessageGenericShopHere(sender) {
             }, 
             {
               "type": "postback",
-              "title": "Start Chatting",
+              "title": "go back",
               "payload": "DEVELOPER_DEFINED_PAYLOAD"
             }, 
           ],
