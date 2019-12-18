@@ -61,7 +61,8 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
-    sendMessageGenericShopHere(sender);
+    // sendMessageGenericShopHere(sender);
+    sendList(sender);
     // sendButton(sender);
   } else if (text.includes("check price")) {
     sendList(sender);
