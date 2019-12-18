@@ -63,10 +63,10 @@ function decideMessage(sender, text1) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
     sendImageMessageGenericShopHere(sender);
-    // sendButton(sender);
+    sendButton(sender);
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
-    // sendButton(sender, 'hello 2');
+    sendButton(sender, 'hello 2');
   } else if (text.includes('go back')) {
     sendGreeting_quick_reply(sender);
   } else {
@@ -102,7 +102,7 @@ function sendGreeting_quick_reply(sender) {
 
 // =====================================================================================================================================
 // send button
-function sendButton(sender, text) {
+function sendButton(sender) {
   let messageData = {
     attachment: {
       type: "template",
@@ -140,20 +140,20 @@ function sendImageMessageGenericShopHere(sender) {
               "webview_height_ratio": "tall",
             },
             "buttons": [{
-                "type": "web_url",
-                "url": "https://petersfancybrownhats.com",
-                "title": "View Website"
-              }, {
-                "type": "postback",
-                "title": "Start Chatting",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
-              },
-              {
-                "type": "postback",
-                "title": "go back",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD_1"
-              },
-            ],
+              "type": "web_url",
+              "url": "https://petersfancybrownhats.com",
+              "title": "View Website"
+            }, {
+              "type": "postback",
+              "title": "Start Chatting",
+              "payload": "DEVELOPER_DEFINED_PAYLOAD"
+            },
+            {
+              "type": "postback",
+              "title": "Start Chatting",
+              "payload": "DEVELOPER_DEFINED_PAYLOAD"
+            },
+          ],
 
 
           },
@@ -167,21 +167,22 @@ function sendImageMessageGenericShopHere(sender) {
               "webview_height_ratio": "tall",
             },
             "buttons": [{
-                "type": "web_url",
-                "url": "https://petersfancybrownhats.com",
-                "title": "View Website"
-              }, {
-                "type": "postback",
-                "title": "Start Chatting",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
-              },
-              {
-                "type": "postback",
-                "title": "go back",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD_1"
-              },
-            ],
-
+              "type": "web_url",
+              "url": "https://petersfancybrownhats.com",
+              "title": "View Website"
+            }, 
+            {
+              "type": "postback",
+              "title": "Start Chatting",
+              "payload": "DEVELOPER_DEFINED_PAYLOAD"
+            }, 
+            {
+              "type": "postback",
+              "title": "Start Chatting",
+              "payload": "DEVELOPER_DEFINED_PAYLOAD"
+            }, 
+          ],
+         
           },
           {
             "title": "Welcome!",
@@ -193,21 +194,22 @@ function sendImageMessageGenericShopHere(sender) {
               "webview_height_ratio": "tall",
             },
             "buttons": [{
-                "type": "web_url",
-                "url": "https://petersfancybrownhats.com",
-                "title": "View Website"
-              }, {
-                "type": "postback",
-                "title": "Start Chatting",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
-              },
-              {
-                "type": "postback",
-                "title": "go back",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD_1"
-              },
-            ],
-
+              "type": "web_url",
+              "url": "https://petersfancybrownhats.com",
+              "title": "View Website"
+            }, 
+            {
+              "type": "postback",
+              "title": "Start Chatting",
+              "payload": "DEVELOPER_DEFINED_PAYLOAD"
+            }, 
+            {
+              "type": "postback",
+              "title": "Start Chatting",
+              "payload": "DEVELOPER_DEFINED_PAYLOAD"
+            }, 
+          ],
+          
           },
         ]
       }
