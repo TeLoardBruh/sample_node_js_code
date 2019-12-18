@@ -83,12 +83,12 @@ function sendGreeting_quick_reply(sender) {
     quick_replies: [
       {
         content_type: "text",
-        title: "continue to see more of our demo",
+        title: "shop here ",
         payload: "testing_1",
       },
       {
         content_type: "text",
-        title: "go dicuss with us on your project",
+        title: "check price",
         payload: "testing_2",
       }
     ]
