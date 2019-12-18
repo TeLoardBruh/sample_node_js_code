@@ -102,7 +102,7 @@ function sendGreeting_quick_reply(sender) {
 
 // =====================================================================================================================================
 // send button
-function sendButton(sender) {
+function sendButton(sender,text) {
   let messageData = {
     attachment: {
       type: "template",
