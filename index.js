@@ -226,21 +226,89 @@ function sendList(sender) {
     attachment: {
       type: "template",
       payload: {
-        template_type: "list",
-        top_element_style: "compact",
+        template_type: "generic",
         elements: [
           {
-            title: "Classic White T-Shirt",
-            subtitle: "100% Cotton, 200% Comfortable",
+            title: "T-Shirt-1",
+            image_url:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
+            subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
-              url: "https://i.pinimg.com/originals/63/31/ab/6331abd76d59e3ee4229e44d5dbcc9a6.png"
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall"
             },
             buttons: [
               {
-                title: "Buy",
                 type: "web_url",
-                url: "https://i.pinimg.com/originals/63/31/ab/6331abd76d59e3ee4229e44d5dbcc9a6.png"
+                url: "https://petersfancybrownhats.com",
+                title: "View Website"
+              },
+              {
+                type: "postback",
+                title: "Start Chatting",
+                payload: "DEVELOPER_DEFINED_PAYLOAD"
+              },
+              {
+                type: "postback",
+                title: "Go Back",
+                payload: "DEVELOPER_DEFINED_PAYLOAD_1"
+              }
+            ]
+          },
+          {
+            title: "T-Shirt-2",
+            image_url:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
+            subtitle: "We have the right hat for everyone.",
+            default_action: {
+              type: "web_url",
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall"
+            },
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://petersfancybrownhats.com",
+                title: "View Website"
+              },
+              {
+                type: "postback",
+                title: "Start Chatting",
+                payload: "DEVELOPER_DEFINED_PAYLOAD"
+              },
+              {
+                type: "postback",
+                title: "Go Back",
+                payload: "DEVELOPER_DEFINED_PAYLOAD_1"
+              }
+            ]
+          },
+          {
+            title: "T-Shirt-3",
+            image_url:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
+            subtitle: "We have the right hat for everyone.",
+            default_action: {
+              type: "web_url",
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall"
+            },
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://petersfancybrownhats.com",
+                title: "View Website"
+              },
+              {
+                type: "postback",
+                title: "Start Chatting",
+                payload: "DEVELOPER_DEFINED_PAYLOAD"
+              },
+              {
+                type: "postback",
+                title: "Go Back",
+                payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
           }
