@@ -82,7 +82,7 @@ function decideMessage(sender, text1) {
 // quick replies on opening chat 
 function sendGreeting_quick_reply(sender) {
   let messageData = {
-    text: "What can we you with ?",
+    text: "What can we help you with ?",
     quick_replies: [{
         content_type: "text",
         title: "shop here",
