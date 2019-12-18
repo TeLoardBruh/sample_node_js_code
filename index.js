@@ -20,21 +20,21 @@ app.use(bodyParser.json());
 // Routes
 // =====================================================================================================================================
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
   res.send("Hi this is my node ChatBot");
 });
 // =====================================================================================================================================
 
 // =====================================================================================================================================
-// webhook 
-app.get("/webhook/", function (req, res) {
+// webhook
+app.get("/webhook/", function(req, res) {
   if (req.query["hub.verify_token"] === "raxcyRax") {
     res.send(req.query["hub.challenge"]);
   }
   res.send("wrong token");
 });
 
-app.post("/webhook/", function (req, res) {
+app.post("/webhook/", function(req, res) {
   let messaging_event = req.body.entry[0].messaging;
   for (let i = 0; i < messaging_event.length; i++) {
     let event = messaging_event[i];
@@ -54,9 +54,8 @@ app.post("/webhook/", function (req, res) {
 });
 // =====================================================================================================================================
 
-
 // =====================================================================================================================================
-// main structure of chatbot 
+// main structure of chatbot
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
@@ -67,34 +66,33 @@ function decideMessage(sender, text1) {
   } else if (text.includes("check price")) {
     sendImageMessageCat(sender);
     // sendButton(sender, 'hello 2');
-  } else if (text.includes('go back')) {
+  } else if (text.includes("go back")) {
     sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
     sendGreeting_quick_reply(sender);
-
   }
 }
 // =====================================================================================================================================
 
 // =====================================================================================================================================
-// quick replies on opening chat 
+// quick replies on opening chat
 function sendGreeting_quick_reply(sender) {
   let messageData = {
     text: "What can we help you with ?",
-    quick_replies: [{
+    quick_replies: [
+      {
         content_type: "text",
         title: "shop here",
-        payload: "testing_1",
+        payload: "testing_1"
       },
       {
         content_type: "text",
         title: "check price",
-        payload: "testing_2",
+        payload: "testing_2"
       }
     ]
-
   };
   sendRequest(sender, messageData);
 }
@@ -102,18 +100,20 @@ function sendGreeting_quick_reply(sender) {
 
 // =====================================================================================================================================
 // send button
-function sendButton(sender,text) {
+function sendButton(sender, text) {
   let messageData = {
     attachment: {
       type: "template",
       payload: {
         template_type: "button",
         text: text,
-        buttons: [{
-          type: "postback",
-          title: "go back",
-          payload: "go_back"
-        }]
+        buttons: [
+          {
+            type: "postback",
+            title: "go back",
+            payload: "go_back"
+          }
+        ]
       }
     }
   };
@@ -121,81 +121,84 @@ function sendButton(sender,text) {
 }
 // =====================================================================================================================================
 
-
 // =====================================================================================================================================
 // send image function
 function sendImageMessageGenericShopHere(sender) {
   let messageData = {
     attachment: {
       type: "template",
-      "payload": {
-        "template_type": "generic",
-        "elements": [{
-            "title": "Welcome!",
-            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
-            "subtitle": "We have the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "tall",
-            },
-            "buttons": [{
-                "type": "web_url",
-                "url": "https://petersfancybrownhats.com",
-                "title": "View Website"
-              }, {
-                "type": "postback",
-                "title": "Start Chatting",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
-              },
-            ],
-          },
+      payload: {
+        template_type: "generic",
+        elements: [
           {
-            "title": "Welcome!",
-            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
-            "subtitle": "We have the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "tall",
+            title: "Welcome!",
+            image_url:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
+            subtitle: "We have the right hat for everyone.",
+            default_action: {
+              type: "web_url",
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall"
             },
-            "buttons": [{
-                "type": "web_url",
-                "url": "https://petersfancybrownhats.com",
-                "title": "View Website"
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://petersfancybrownhats.com",
+                title: "View Website"
               },
               {
-                "type": "postback",
-                "title": "Start Chatting",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
-              },
-
-            ],
-
+                type: "postback",
+                title: "Start Chatting",
+                payload: "DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ]
           },
           {
-            "title": "Welcome!",
-            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
-            "subtitle": "We have the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "tall",
+            title: "Welcome!",
+            image_url:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
+            subtitle: "We have the right hat for everyone.",
+            default_action: {
+              type: "web_url",
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall"
             },
-            "buttons": [{
-                "type": "web_url",
-                "url": "https://petersfancybrownhats.com",
-                "title": "View Website"
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://petersfancybrownhats.com",
+                title: "View Website"
               },
               {
-                "type": "postback",
-                "title": "Start Chatting",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD"
-              },
-
-            ],
-
+                type: "postback",
+                title: "Start Chatting",
+                payload: "DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ]
           },
+          {
+            title: "Welcome!",
+            image_url:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
+            subtitle: "We have the right hat for everyone.",
+            default_action: {
+              type: "web_url",
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall"
+            },
+            buttons: [
+              {
+                type: "web_url",
+                url: "https://petersfancybrownhats.com",
+                title: "View Website"
+              },
+              {
+                type: "postback",
+                title: "Start Chatting",
+                payload: "DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ]
+          }
         ]
       }
     }
@@ -208,7 +211,8 @@ function sendImageMessageCat(sender) {
     attachment: {
       type: "image",
       payload: {
-        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifDWMZoCYkJUfs_3YwbMVlTdMke7RgEfOX2P_NUXBmiRp7JW_&s"
+        url:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQifDWMZoCYkJUfs_3YwbMVlTdMke7RgEfOX2P_NUXBmiRp7JW_&s"
       }
     }
   };
@@ -216,12 +220,11 @@ function sendImageMessageCat(sender) {
 }
 // =====================================================================================================================================
 
-
-
 // send Request Function
 // =====================================================================================================================================
 function sendRequest(sender, messageData) {
-  request({
+  request(
+    {
       url: "https://graph.facebook.com/v5.0/me/messages",
       qs: {
         access_token: token
@@ -234,7 +237,7 @@ function sendRequest(sender, messageData) {
         message: messageData
       }
     },
-    function (error, req, res) {
+    function(error, req, res) {
       if (error) {
         console.log("Sending is Error");
       } else if (req.body.error) {
@@ -251,6 +254,6 @@ function sendText(sender, text) {
   };
   sendRequest(sender, messageData);
 }
-app.listen(app.get("port"), function () {
+app.listen(app.get("port"), function() {
   console.log(`running : port `);
 });
