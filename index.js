@@ -67,8 +67,10 @@ function decideMessage(sender, text1) {
     sendImageMessageCat(sender);
     sendBack(sender);
   } else {
-    sendText(sender, "Hello welcome to my service");
-    sendButton(sender, "what is your fav pet ?");
+    // sendText(sender, "Hello welcome to my service");
+    // sendButton(sender, "what is your fav pet ?");
+    sendGreeting_quick_reply(sender);
+
   }
 }
 // =====================================================================================================================================
