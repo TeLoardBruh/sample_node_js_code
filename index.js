@@ -137,22 +137,24 @@ function sendImageMessageGenericShopHere(sender) {
             "default_action": {
               "type": "web_url",
               "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "compact",
+              "webview_height_ratio": "tall",
             },
             "buttons": [{
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com",
-              "title": "View Website"
-            }, {
-              "type": "postback",
-              "title": "Start Chatting",
-              "payload": "DEVELOPER_DEFINED_PAYLOAD"
-            }, ],
-            buttons: [{
-              type: "postback",
-              title: "go back",
-              payload: "go_back"
-            }]
+                "type": "web_url",
+                "url": "https://petersfancybrownhats.com",
+                "title": "View Website"
+              }, {
+                "type": "postback",
+                "title": "Start Chatting",
+                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+              },
+              {
+                "type": "postback",
+                "title": "go back",
+                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+              },
+            ],
+
 
           },
           {
@@ -162,22 +164,24 @@ function sendImageMessageGenericShopHere(sender) {
             "default_action": {
               "type": "web_url",
               "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "compact",
+              "webview_height_ratio": "tall",
             },
             "buttons": [{
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com",
-              "title": "View Website"
-            }, {
-              "type": "postback",
-              "title": "Start Chatting",
-              "payload": "DEVELOPER_DEFINED_PAYLOAD"
-            }, ],
-            buttons: [{
-              type: "postback",
-              title: "go back",
-              payload: "go_back"
-            }]
+                "type": "web_url",
+                "url": "https://petersfancybrownhats.com",
+                "title": "View Website"
+              }, {
+                "type": "postback",
+                "title": "Start Chatting",
+                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+              },
+              {
+                "type": "postback",
+                "title": "go back",
+                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+              },
+            ],
+
           },
           {
             "title": "Welcome!",
@@ -186,22 +190,24 @@ function sendImageMessageGenericShopHere(sender) {
             "default_action": {
               "type": "web_url",
               "url": "https://petersfancybrownhats.com/view?item=103",
-              "webview_height_ratio": "compact",
+              "webview_height_ratio": "tall",
             },
             "buttons": [{
-              "type": "web_url",
-              "url": "https://petersfancybrownhats.com",
-              "title": "View Website"
-            }, {
-              "type": "postback",
-              "title": "Start Chatting",
-              "payload": "DEVELOPER_DEFINED_PAYLOAD"
-            }, ],
-            buttons: [{
-              type: "postback",
-              title: "go back",
-              payload: "go_back"
-            }]
+                "type": "web_url",
+                "url": "https://petersfancybrownhats.com",
+                "title": "View Website"
+              }, {
+                "type": "postback",
+                "title": "Start Chatting",
+                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+              },
+              {
+                "type": "postback",
+                "title": "go back",
+                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+              },
+            ],
+
           },
         ]
       }
