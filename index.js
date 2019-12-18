@@ -61,12 +61,9 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
-    // sendMessageGenericShopHere(sender);
-    sendList(sender);
-    // sendButton(sender);
+    sendMessageGenericShopHere(sender);
   } else if (text.includes("check price")) {
     sendList(sender);
-    // sendButton(sender, 'hello 2');
   } else if (text.includes("Go back")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("Start Chatting")) {
@@ -230,7 +227,7 @@ function sendList(sender) {
       type: "template",
       payload: {
         template_type: "list",
-        top_element_style: "compact",
+        top_element_style: "tall",
         elements: [
           {
             title: "Classic T-Shirt Collection",
