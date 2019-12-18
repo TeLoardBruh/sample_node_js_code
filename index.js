@@ -52,12 +52,14 @@ app.post("/webhook/", function(req, res) {
 
 function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
-  if (text.includes("hi quick reply")) {
+  if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("hello")) {
     sendImageMessageDog(sender);
+    sendBack(sender);
   } else if (text.includes("bye")) {
     sendImageMessageCat(sender);
+    sendBack(sender);
   } else {
     sendText(sender, "Hello welcome to my service");
     sendButton(sender, "what is your fav pet ?");
