@@ -112,7 +112,7 @@ function start_chating(sender) {
     text: "hello so may i have your phone number",
     quick_replies: [{
         content_type: "user_phone_number",
-        payload: "testing_1"
+        payload: "testing_phone_number"
       },
       {
         mid: "m_AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
