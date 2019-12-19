@@ -111,11 +111,16 @@ function start_chating(sender) {
   let messageData = {
     
     quick_replies: [{
-        content_type: "text",
-        title: "can we have your phone number here",
-        payload: "testing_1"
-      }
-    ]
+      content_type: "text",
+      title: "phone number",
+      payload: "testing_1"
+    },
+    {
+      content_type: "text",
+      title: "email",
+      payload: "testing_2"
+    }
+  ]
   };
   sendRequest(sender, messageData);
 }
