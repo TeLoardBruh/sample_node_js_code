@@ -71,7 +71,7 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-  } else if (text.includes("shop here")) {
+  } else if (text.includes("Start Chatting")) {
     start_chating(sender);
   } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
