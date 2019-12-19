@@ -82,7 +82,7 @@ function decideMessage(sender, text1) {
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
-    // sendGreeting_quick_reply(sender);
+    sendGreeting_quick_reply(sender);
   }
 }
 // =====================================================================================================================================
@@ -112,11 +112,12 @@ function start_chating(sender) {
     text: "hello so may i have your phone number",
     quick_replies: [{
         content_type: "user_phone_number",
+        title : "please give us your phone number",
         payload: "testing_phone_number"
       },
       {
         mid: "m_AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
-        text: "phone number"
+        text: "+855"
       }
     ]
   };
