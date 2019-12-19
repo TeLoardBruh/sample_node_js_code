@@ -325,7 +325,7 @@ function sendList(sender) {
 function sendRequest(sender, messageData) {
   request(
     {
-      url: "https://graph.facebook.com/v5.0/me/messages",
+      url: "https://graph.facebook.com/v2.6/me/messages",
       qs: {
         access_token: token
       },
