@@ -72,6 +72,8 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("shop here")) {
+    start_chating(sender);
+  } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
   } else if (text.includes("check price")) {
     sendList(sender);
@@ -92,8 +94,7 @@ function decideMessage(sender, text1) {
 function sendGreeting_quick_reply(sender) {
   let messageData = {
     text: "What can we help you with ?",
-    quick_replies: [
-      {
+    quick_replies: [{
         content_type: "text",
         title: "shop here",
         payload: "testing_1"
@@ -102,6 +103,22 @@ function sendGreeting_quick_reply(sender) {
         content_type: "text",
         title: "check price",
         payload: "testing_2"
+      }
+    ]
+  };
+  sendRequest(sender, messageData);
+}
+
+function start_chating(sender) {
+  let messageData = {
+    text: "hello so may i have your phone number",
+    quick_replies: [{
+        content_type: "user_phone_number",
+        payload: "testing_1"
+      },
+      {
+        mid: "m_AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
+        text: "phone number"
       }
     ]
   };
@@ -118,13 +135,11 @@ function sendButton(sender, text) {
       payload: {
         template_type: "button",
         text: text,
-        buttons: [
-          {
-            type: "postback",
-            title: "go back",
-            payload: "go_back"
-          }
-        ]
+        buttons: [{
+          type: "postback",
+          title: "go back",
+          payload: "go_back"
+        }]
       }
     }
   };
@@ -140,19 +155,16 @@ function sendMessageGenericShopHere(sender) {
       type: "template",
       payload: {
         template_type: "generic",
-        elements: [
-          {
+        elements: [{
             title: "T-Shirt-1",
-            image_url:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
             subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
               url: "https://petersfancybrownhats.com/view?item=103",
               webview_height_ratio: "tall"
             },
-            buttons: [
-              {
+            buttons: [{
                 type: "web_url",
                 url: "https://petersfancybrownhats.com",
                 title: "View Website"
@@ -171,16 +183,14 @@ function sendMessageGenericShopHere(sender) {
           },
           {
             title: "T-Shirt-2",
-            image_url:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
             subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
               url: "https://petersfancybrownhats.com/view?item=103",
               webview_height_ratio: "tall"
             },
-            buttons: [
-              {
+            buttons: [{
                 type: "web_url",
                 url: "https://petersfancybrownhats.com",
                 title: "View Website"
@@ -199,16 +209,14 @@ function sendMessageGenericShopHere(sender) {
           },
           {
             title: "T-Shirt-3",
-            image_url:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
             subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
               url: "https://petersfancybrownhats.com/view?item=103",
               webview_height_ratio: "tall"
             },
-            buttons: [
-              {
+            buttons: [{
                 type: "web_url",
                 url: "https://petersfancybrownhats.com",
                 title: "View Website"
@@ -238,19 +246,16 @@ function sendList(sender) {
       type: "template",
       payload: {
         template_type: "generic",
-        elements: [
-          {
+        elements: [{
             title: "T-Shirt-1",
-            image_url:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCLCDHqP6Xcs6HiSH86dnEkm3J4timN0eExjdnqwddr45OgET&s",
             subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
               url: "https://petersfancybrownhats.com/view?item=103",
               webview_height_ratio: "tall"
             },
-            buttons: [
-              {
+            buttons: [{
                 type: "web_url",
                 url: "https://petersfancybrownhats.com",
                 title: "View Website"
@@ -269,16 +274,14 @@ function sendList(sender) {
           },
           {
             title: "T-Shirt-2",
-            image_url:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLOO-8_NOdPnb1CNo4qp6GrCjHsZ1L8gDjdCIHmp6T_ibdNNjc&s",
             subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
               url: "https://petersfancybrownhats.com/view?item=103",
               webview_height_ratio: "tall"
             },
-            buttons: [
-              {
+            buttons: [{
                 type: "web_url",
                 url: "https://petersfancybrownhats.com",
                 title: "View Website"
@@ -297,16 +300,14 @@ function sendList(sender) {
           },
           {
             title: "T-Shirt-3",
-            image_url:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa0v1fSi6IQBrgcHXbDGSrc8yTrFLnzQzo_hwkXd6xPvPZ7V9p5A&s",
             subtitle: "We have the right hat for everyone.",
             default_action: {
               type: "web_url",
               url: "https://petersfancybrownhats.com/view?item=103",
               webview_height_ratio: "tall"
             },
-            buttons: [
-              {
+            buttons: [{
                 type: "web_url",
                 url: "https://petersfancybrownhats.com",
                 title: "View Website"
@@ -334,8 +335,7 @@ function sendList(sender) {
 // send Request Function
 // =====================================================================================================================================
 function sendRequest(sender, messageData) {
-  request(
-    {
+  request({
       url: "https://graph.facebook.com/v5.0/me/messages",
       qs: {
         access_token: token
