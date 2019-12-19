@@ -72,7 +72,7 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("start chat")) {
-    start_chating(sender);
+    sendMessageGenericShopHere(sender);
   } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
   } else if (text.includes("check price")) {
