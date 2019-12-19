@@ -109,17 +109,13 @@ function sendGreeting_quick_reply(sender) {
 
 function start_chating(sender) {
   let messageData = {
-    text: "hello so may i have your phone number",
-    quick_replies: [{
-        content_type: "user_phone_number",
-        title : "please give us your phone number",
-        payload: "testing_phone_number"
-      },
-      {
-        mid: "m_AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
-        text: "+855"
-      }
-    ]
+
+    "quick_reply": {
+      "payload": "<PHONE_NUMBER>"
+    },
+    "mid": "m_AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
+    "text": "<PHONE_NUMBER>"
+
   };
   sendRequest(sender, messageData);
 }
