@@ -71,7 +71,7 @@ function decideMessage(sender, text1) {
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
-    sendGreeting_quick_reply(sender);
+    // sendGreeting_quick_reply(sender);
   }
 }
 // =====================================================================================================================================
