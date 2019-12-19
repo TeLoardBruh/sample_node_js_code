@@ -111,6 +111,7 @@ function start_chating(sender) {
   let messageData = {
 
     "quick_reply": {
+      "content_type":"user_phone_number",
       "payload": "<PHONE_NUMBER>"
     },
     "mid": "m_AG5Hz2Uq7tuwNEhXfYYKj8mJEM_QPpz5jdCK48PnKAjSdjfipqxqMvK8ma6AC8fplwlqLP_5cgXIbu7I3rBN0P",
