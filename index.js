@@ -79,8 +79,6 @@ function decideMessage(sender, text1) {
     sendList(sender);
   } else if (text.includes("Go back")) {
     sendGreeting_quick_reply(sender);
-  } else if (text.includes("Start Chatting")) {
-    sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
