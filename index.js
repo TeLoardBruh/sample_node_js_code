@@ -72,7 +72,7 @@ function decideMessage(sender, text1) {
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
   } else if (text.includes("start chat")) {
-    sendMessageGenericShopHere(sender);
+    start_chating(sender);
   } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
   } else if (text.includes("check price")) {
@@ -109,7 +109,7 @@ function sendGreeting_quick_reply(sender) {
 
 function start_chating(sender) {
   let messageData = {
-    
+    text: "What do you want to use as long as we go ?",
     quick_replies: [{
       content_type: "text",
       title: "phone number",
