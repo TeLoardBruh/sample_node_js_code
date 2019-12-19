@@ -208,6 +208,6 @@ function callSendAPI(messageData) {
 }
 
 // Set Express to listen out for HTTP requests
-var server = app.listen(process.env.PORT || 3000, function () {
-  console.log("Listening on port %s", server.address().port);
+app.listen(app.get("port"), function () {
+  console.log(`running : port `);
 });
