@@ -60,8 +60,6 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-  } else if (text.includes("Get Started")) {
-    send_get_started(sender);
   } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
   } else if (text.includes("check price")) {
@@ -73,7 +71,7 @@ function decideMessage(sender, text1) {
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
-    // sendGreeting_quick_reply(sender);
+    sendGreeting_quick_reply(sender);
   }
 }
 // =====================================================================================================================================
@@ -98,42 +96,7 @@ function sendGreeting_quick_reply(sender) {
   sendRequest(sender, messageData);
 }
 // =====================================================================================================================================
-function send_get_started(sender) {
-  request({
-        url: "https://graph.facebook.com/v2.6/me/messages" + sender,
-        qs: {
-          access_token: token
-        },
-        method: "GET",
-      },
-      function (error, req, res) {
-        if (error) {
-          console.log("Sending is Error");
-        } else if (req.body.error) {
-          console.log("responding is Error");
-        }
-      }
-    ),
-    function (res, rep, body) {
-      let bodyObj = JSON.parse(body)
-      let name = bodyObj.first_name
-      let messageData = {
-        text: "Hello " + name + "What can we help you with ?",
-        quick_replies: [{
-            content_type: "text",
-            title: "shop here",
-            payload: "testing_1"
-          },
-          {
-            content_type: "text",
-            title: "check price",
-            payload: "testing_2"
-          }
-        ]
-      };
-      sendRequest(sender, messageData);
-    }
-}
+
 
 // =====================================================================================================================================
 // send button
