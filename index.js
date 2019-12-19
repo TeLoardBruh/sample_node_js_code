@@ -71,13 +71,13 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-  } else if (text.includes("Start Chatting")) {
+  } else if (text.includes("start chatting")) {
     start_chating(sender);
   } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
   } else if (text.includes("check price")) {
     sendList(sender);
-  } else if (text.includes("Go back")) {
+  } else if (text.includes("go back")) {
     sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
@@ -169,12 +169,12 @@ function sendMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "Start Chatting",
+                title: "start chatting",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
                 type: "postback",
-                title: "Go Back",
+                title: "go back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
@@ -195,12 +195,12 @@ function sendMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "Start Chatting",
+                title: "start chatting",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
                 type: "postback",
-                title: "Go Back",
+                title: "go back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
@@ -221,12 +221,12 @@ function sendMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "Start Chatting",
+                title: "start chatting",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
                 type: "postback",
-                title: "Go Back",
+                title: "go back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
@@ -260,12 +260,12 @@ function sendList(sender) {
               },
               {
                 type: "postback",
-                title: "Start Chatting",
+                title: "start chatting",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
                 type: "postback",
-                title: "Go Back",
+                title: "go back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
@@ -286,7 +286,7 @@ function sendList(sender) {
               },
               {
                 type: "postback",
-                title: "Start Chatting",
+                title: "start chatting",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
@@ -312,12 +312,12 @@ function sendList(sender) {
               },
               {
                 type: "postback",
-                title: "Start Chatting",
+                title: "start chatting",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
                 type: "postback",
-                title: "Go Back",
+                title: "go back",
                 payload: "DEVELOPER_DEFINED_PAYLOAD_1"
               }
             ]
