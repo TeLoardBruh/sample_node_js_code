@@ -13,7 +13,6 @@ app.set("port", process.env.PORT || 5000);
 
 
 // The rest of the code implements the routes for our Express server.
-let app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
