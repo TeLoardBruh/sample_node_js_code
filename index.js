@@ -78,11 +78,11 @@ function decideMessage(sender, text1) {
   } else if (text.includes("check price")) {
     sendList(sender);
   } else if (text.includes("Go back")) {
-    // sendGreeting_quick_reply(sender);
+    sendGreeting_quick_reply(sender);
   } else {
     // sendText(sender, "Hello welcome to my service");
     // sendButton(sender, "what is your fav pet ?");
-    sendGreeting_quick_reply(sender);
+    // sendGreeting_quick_reply(sender);
   }
 }
 // =====================================================================================================================================
