@@ -71,7 +71,7 @@ function decideMessage(sender, text1) {
   let text = text1.toString().toLowerCase();
   if (text.includes("hi")) {
     sendGreeting_quick_reply(sender);
-  } else if (text.includes("start chatting")) {
+  } else if (text.includes("start chat")) {
     start_chating(sender);
   } else if (text.includes("shop here")) {
     sendMessageGenericShopHere(sender);
@@ -171,7 +171,7 @@ function sendMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "start chatting",
+                title: "start chat",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
@@ -197,7 +197,7 @@ function sendMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "start chatting",
+                title: "start chat",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
@@ -223,7 +223,7 @@ function sendMessageGenericShopHere(sender) {
               },
               {
                 type: "postback",
-                title: "start chatting",
+                title: "start chat",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
@@ -262,7 +262,7 @@ function sendList(sender) {
               },
               {
                 type: "postback",
-                title: "start chatting",
+                title: "start chat",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
@@ -288,7 +288,7 @@ function sendList(sender) {
               },
               {
                 type: "postback",
-                title: "start chatting",
+                title: "start chat",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
@@ -314,7 +314,7 @@ function sendList(sender) {
               },
               {
                 type: "postback",
-                title: "start chatting",
+                title: "start chat",
                 payload: "DEVELOPER_DEFINED_PAYLOAD"
               },
               {
