@@ -3,9 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
-const SERVER_URL = (process.env.SERVER_URL) ?
-  (process.env.SERVER_URL) :
-  config.get('serverURL');
+const  serverURL = "to_be_set_manually"
 const app = express();
 let token =
   "EAAjUYnJpZAMoBAOBemtbwdjsZAbg906HrasCLyjpn1xcEg7583VvE6T470ZCLShZBLAGDS25LsstcyxlS248lH2jYzeAZBt09k1Gcuu41JEkv53BKtcKnHRZAcnhUtSSy68tZBi7LsdxQpcfrXSx90QC5i7d7ngKbfTZAogZAjZCXQwQZDZD";
@@ -375,7 +373,7 @@ function receivedAccountLink(event) {
  * in default.json before they can access local resources likes images/videos.
  */
 function requiresServerURL(next, [recipientId, ...args]) {
-  if (SERVER_URL === "to_be_set_manually") {
+  if (serverURL === "to_be_set_manually") {
     var messageData = {
       recipient: {
         id: recipientId
