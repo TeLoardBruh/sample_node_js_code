@@ -9,7 +9,7 @@ require("dotenv/config");
 
 
 let token =
-  "EAAjUYnJpZAMoBAOBemtbwdjsZAbg906HrasCLyjpn1xcEg7583VvE6T470ZCLShZBLAGDS25LsstcyxlS248lH2jYzeAZBt09k1Gcuu41JEkv53BKtcKnHRZAcnhUtSSy68tZBi7LsdxQpcfrXSx90QC5i7d7ngKbfTZAogZAjZCXQwQZDZD";
+  "your page token";
 app.set("port", process.env.PORT || 5000);
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () =>
   console.log("suc again")
